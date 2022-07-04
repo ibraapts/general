@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,6 +64,7 @@
 <div style="width: 360px;  margin:0 auto; ">
 <h3 align=center>Indian Bank Retirees Association</h3>
 <h3 align=center>Membership Applications Due</h3>
+<p id="counts"></p>
 <p id="demo"></p>
  <div id="myModal" class="modal">
             <div class="modal-content">
@@ -79,11 +81,37 @@
                 data = await response.json()
                 tempData = data["user"]
                 activeMembers = tempData.filter(a => a.name !== "")
-         activeMembers = activeMembers.filter(a => a.scanned == "NO").sort(function (a, b) { return a.name.localeCompare(b.name) });    
+         activeMembers = activeMembers.filter(a => a.scanned == "NO").sort(function (a, b) { return a.name.localeCompare(b.name) }).sort(function (a, b) { return a.area.localeCompare(b.area) });
+         
+         
+         
+         
          allregions() 
-                }
+             countregions()
+             }
                 
 getMyData()
+
+function countregions(){
+
+regcount =`<table border=1><tr>
+<td>GOD: ${activeMembers.filter(a => a.area == "GOD").length}
+<td>HYD: ${activeMembers.filter(a => a.area == "HYD").length}
+<td>OTH: ${activeMembers.filter(a => a.area == "OTH").length}
+<tr><td>SEEMA: ${activeMembers.filter(a => a.area == "SEEMA").length}
+<td>VIJ: ${activeMembers.filter(a => a.area == "VIJ").length}
+<td>VSP: ${activeMembers.filter(a => a.area == "VSP").length}
+
+
+
+</table>
+`
+
+
+document.getElementById('counts').innerHTML = regcount
+
+}
+
 
 function allregions() {
                 inThisRegion = "<table align=center id='regionTable'  border=1 width=300><tr><td>Name<td>SR No"
@@ -124,7 +152,7 @@ function nameclick(membershipNo) {
                 }
                 toDisplay += "<tr><td colspan=2><b>Pension Acc: </b> " + membData[0].sbac
                 whichBank = membData[0].IBorEAB === 'IB' ? "Indian Bank" : "e Allahabad Bank"
-                toDisplay += "<tr><td colspan=2><b>Retired from : </b> " + whichBank
+                toDisplay += "<tr><td colspan=2><b>Retired from : </b> Indian Bank" 
                 toDisplay += "<tr><td colspan=2><b>Region : </b> " + membData[0].area.substr(0, 3)
 
 
