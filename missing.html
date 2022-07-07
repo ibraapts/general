@@ -115,7 +115,7 @@ document.getElementById('counts').innerHTML = regcount
 
 function allregions() {
                 inThisRegion = "<table align=center id='regionTable'  border=1 ><tr><td>Name<td>SR No"
-                activeMembers.forEach(function (a) { inThisRegion += "<tr onClick='nameclick(this.id)' id=" + a.id + "><td >" + a.name +"- "+a.area+  "<td align=right >" + a.srno +"</td></tr>" })
+                activeMembers.forEach(function (a) { inThisRegion += "<tr onClick='nameclick(this.id)' id=" + a.id + "><td >" + a.name +"- "+a.area+" "+a.mobile1+"<td align=right >" + a.srno +"</td></tr>" })
                 inThisRegion += "</table><br><br><br>"
                 document.getElementById('demo').innerHTML = ""
                 document.getElementById('demo').innerHTML = inThisRegion
