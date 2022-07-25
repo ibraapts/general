@@ -97,7 +97,7 @@ function countregions(){
 regcount =`<table border=1><tr>
 <td>GOD: ${activeMembers.filter(a => a.area == "GOD").length}
 <td>HYD: ${activeMembers.filter(a => a.area == "HYD").length}
-<td>OTH: ${activeMembers.filter(a => a.area == "OTH").length}
+<td>OTH: ${activeMembers.filter(a => a.area.includes("OTH")).length}
 <tr><td>SEEMA: ${activeMembers.filter(a => a.area == "SEEMA").length}
 <td>VIJ: ${activeMembers.filter(a => a.area == "VIJ").length}
 <td>VSP: ${activeMembers.filter(a => a.area == "VSP").length}
