@@ -83,6 +83,7 @@
                 activeMembers = tempData.filter(a => a.name !== "")
          activeMembers = activeMembers.filter(a => a.scanned == "NO").sort(function (a, b) { return a.name.localeCompare(b.name) }).sort(function (a, b) { return a.area.localeCompare(b.area) });
          
+document.getElementById('due').innerHTML = 'Membership Applications Due--' + activeMembers.length
          
          
          
